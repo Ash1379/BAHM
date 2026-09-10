@@ -1,8 +1,15 @@
-const ACCESS_TOKEN_KEY = "bahm_access_token";
-const REFRESH_TOKEN_KEY = "bahm_refresh_token";
+const ACCESS_TOKEN_KEY =
+    "bahm_access_token";
+
+const REFRESH_TOKEN_KEY =
+    "bahm_refresh_token";
 
 
-export function saveTokens(accessToken, refreshToken) {
+export function saveTokens(
+    accessToken,
+    refreshToken
+) {
+
     localStorage.setItem(
         ACCESS_TOKEN_KEY,
         accessToken
@@ -16,6 +23,7 @@ export function saveTokens(accessToken, refreshToken) {
 
 
 export function getAccessToken() {
+
     return localStorage.getItem(
         ACCESS_TOKEN_KEY
     );
@@ -23,6 +31,7 @@ export function getAccessToken() {
 
 
 export function getRefreshToken() {
+
     return localStorage.getItem(
         REFRESH_TOKEN_KEY
     );
@@ -30,6 +39,7 @@ export function getRefreshToken() {
 
 
 export function clearTokens() {
+
     localStorage.removeItem(
         ACCESS_TOKEN_KEY
     );

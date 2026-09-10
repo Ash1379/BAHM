@@ -1,11 +1,7 @@
 import { useAuth } from "../../auth/AuthContext";
 
 function Dashboard() {
-  const { user, logout } = useAuth();
-
-  async function handleLogout() {
-    await logout();
-  }
+  const { user } = useAuth();
 
   return (
     <div>
@@ -14,8 +10,6 @@ function Dashboard() {
       <p>Welcome, {user?.first_name}!</p>
 
       <p>Email: {user?.email}</p>
-
-      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 }

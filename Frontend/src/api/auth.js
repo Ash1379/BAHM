@@ -8,7 +8,11 @@ import {
 } from "../auth/storage";
 
 
-export async function login(email, password) {
+export async function login(
+    email,
+    password
+) {
+
     const data = await apiRequest(
         "/auth/login/",
         {
@@ -20,10 +24,12 @@ export async function login(email, password) {
         }
     );
 
+
     saveTokens(
         data.tokens.access,
         data.tokens.refresh
     );
+
 
     return data;
 }
@@ -36,6 +42,7 @@ export async function register(
     password,
     passwordConfirm
 ) {
+
     return apiRequest(
         "/auth/register/",
         {
@@ -53,7 +60,10 @@ export async function register(
 
 
 export async function getMe() {
-    const accessToken = getAccessToken();
+
+    const accessToken =
+        getAccessToken();
+
 
     return apiRequest(
         "/auth/me/",
@@ -66,10 +76,16 @@ export async function getMe() {
 
 
 export async function logout() {
-    const refreshToken = getRefreshToken();
-    const accessToken = getAccessToken();
+
+    const refreshToken =
+        getRefreshToken();
+
+    const accessToken =
+        getAccessToken();
+
 
     try {
+
         return await apiRequest(
             "/auth/logout/",
             {
@@ -80,9 +96,9 @@ export async function logout() {
                 },
             }
         );
+
     } finally {
+
         clearTokens();
     }
 }
-
-
